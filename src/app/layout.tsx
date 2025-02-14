@@ -15,6 +15,24 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "AI Property Search",
   description: "Deep AI powered home finder",
+  icons: {
+    icon: '/favicon.ico', // Path to the ICO file
+    apple: '/apple-touch-icon.png',
+    other: [
+      {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '192x192',
+          url: '/android-chrome-192x192.png', // Android icon 192x192
+      },
+      {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '512x512',
+          url: '/android-chrome-512x512.png', // Android icon 512x512
+      },
+  ],
+    },
 };
 
 export default function RootLayout({
