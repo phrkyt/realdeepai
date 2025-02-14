@@ -19,9 +19,14 @@ export default function Home() {
       </Head>
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600">
         <form onSubmit={handleSearch} className="w-full max-w-md">
-          <h1 className="text-2xl font-bold text-white mb-4 text-center">
-            Search Deep for your Next Acquisition with AI
-          </h1>
+        <h1 className="text-2xl font-bold font-serif text-white mb-4 text-center">
+  Search Deep for your Next Acquisition with AI
+</h1>
+          <img 
+            src="/realdeep-high1.png" 
+            alt="Real Deep High" 
+            className="mx-auto mb-4"
+          />
           <div className="flex items-center bg-white rounded-full shadow-xl p-2">
             <input
               type="text"
