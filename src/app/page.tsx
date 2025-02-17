@@ -2,6 +2,7 @@
 import { useState, FormEvent, useRef, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import Head from "next/head";
+import Image from 'next/image'; // Import the Image component
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -43,14 +44,15 @@ export default function Home() {
     if (isSearching && textContainerRef.current) {
       const textContainer = textContainerRef.current;
       const textWidth = textContainer.offsetWidth;
-      const containerWidth = textContainer.parentElement?.offsetWidth || 0;
+      // const containerWidth = textContainer.parentElement?.offsetWidth || 0; // Remove unused variable
       const duration = (textWidth / 50) * 5;
 
       textContainer.style.animation = `scrollText ${duration}s linear infinite`;
     }
     return () => {
-      if (textContainerRef.current) {
-        textContainerRef.current.style.animation = '';
+      const currentRef = textContainerRef.current; // Copy the ref to a variable
+      if (currentRef) {
+        currentRef.style.animation = '';
       }
     };
   }, [isSearching]);
@@ -69,17 +71,21 @@ export default function Home() {
               <h1 className="text-2xl font-bold font-serif text-white mb-4 text-center w-full">
                 Deep Search for your Next Acquisition with AI
               </h1>
-              <img
+              <Image // Use the Image component
                 src="/realdeep-high1.png"
                 alt="Real Deep High"
-                className={`mx-auto mb-4 h-64 w-auto transition-all duration-500`} // Increased image size
+                width={256} // Set the width
+                height={128} // Set the height
+                className={`mx-auto mb-4 transition-all duration-500`}
               />
             </>
           ) : (
             <div className="flex items-center w-full">
-              <img
+              <Image // Use the Image component
                 src="/realdeep-high1.png"
                 alt="Real Deep High"
+                width={64} // Set the width
+                height={32} // Set the height
                 className="w-16 h-auto transition-all duration-500"
               />
               <div className="scrolling-text-container" style={{ overflow: 'hidden', whiteSpace: 'nowrap', width: 'calc(100% - 4rem)' }}>
